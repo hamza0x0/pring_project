@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TechHub - Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-blue-600">TechHub</h1>
+        <div class="space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+            <a href="products_list.html" class="text-gray-600 hover:text-blue-600">Products</a>
+            <a href="panier.html" class="text-gray-600 hover:text-blue-600">Cart</a>
+            <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
+            <a href="profile.html" class="text-blue-600 font-semibold">Profile</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Profile Section -->
+<div class="max-w-4xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-8">
+    <div class="flex flex-col items-center">
+        <img class="w-32 h-32 rounded-full shadow-md object-cover" src="https://via.placeholder.com/150" alt="User Avatar">
+        <h2 class="mt-4 text-2xl font-bold text-gray-800">John Doe</h2>
+        <p class="text-gray-500">john.doe@example.com</p>
+        <p class="text-gray-500">Casablanca, Morocco</p>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                <input type="text" value="John Doe" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" value="john.doe@example.com" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Phone</label>
+                <input type="text" value="+212 600-000000" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">City</label>
+                <input type="text" value="Casablanca" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+        </div>
+
+        <button class="mt-8 bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">
+            Save Changes
+        </button>
+    </div>
+</div>
+
+</body>
+</html>

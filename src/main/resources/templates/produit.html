@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHub - Product Details</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .tech-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Navigation -->
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <div class="flex-shrink-0 flex items-center">
+                    <h1 class="text-2xl font-bold text-blue-600">TechHub</h1>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Home
+                    </a>
+                    <a href="products_list.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Products
+                    </a>
+                    <a href="panier.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Cart
+                    </a>
+                    <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Contact
+                    </a>
+                </div>
+            </div>
+            <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                <div class="ml-3 relative">
+                    <div class="flex space-x-4 items-center">
+                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <span class="sr-only">View notifications</span>
+                            <i class="far fa-bell text-xl"></i>
+                        </button>
+                        <a href="panier.html" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <span class="sr-only">View cart</span>
+                            <div class="relative">
+                                <i class="fas fa-shopping-cart text-xl"></i>
+                                <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                            </div>
+                        </a>
+                        <a href="login.html" class="flex items-center justify-center">
+                            <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="User profile">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Product Header Section -->
+<div class="tech-gradient py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold text-white">Product Details</h1>
+            <p class="mt-2 text-lg text-white opacity-90">Learn more about the product</p>
+        </div>
+    </div>
+</div>
+
+<!-- Product Details Section -->
+<form th:action="@{/panier/ajouter_article}" method="post">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col lg:flex-row">
+        <!-- Product Image and Info -->
+        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img th:src="*{produit.getImageUrl()}" alt="Product Image" class="w-full h-72 object-cover rounded-lg mb-6">
+                <h2 th:text="*{produit.getNom()}" class="text-xl font-bold text-gray-900"></h2>
+                <p th:text="*{produit.getDescription()}" class="text-gray-500 mt-5"></p>
+
+                <!-- Price -->
+
+            </div>
+        </div>
+        <input type="hidden" th:name="id" th:value="${produit.id}">
+        <!-- Add to Cart and Specifications -->
+        <div class="w-full lg:w-1/2 lg:pl-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150">
+                    Add to Cart
+                </button>
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Prix du produit :</h3>
+                    <div class="flex items-center mt-4">
+                        <span th:text="${produit.getPrix() }+ ' DH'" class="text-blue-600 font-bold text-2xl ml-6"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <p>&copy; 2025 TechHub. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

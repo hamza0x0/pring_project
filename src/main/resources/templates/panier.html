@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHub - Paiement</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .tech-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <div class="flex-shrink-0 flex items-center">
+                    <h1 class="text-2xl font-bold text-blue-600">TechHub</h1>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Accueil
+                    </a>
+                    <a href="products_list.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Produits
+                    </a>
+                    <a href="panier.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Panier
+                    </a>
+                    <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Contact
+                    </a>
+                </div>
+            </div>
+            <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                <div class="ml-3 relative">
+                    <div class="flex space-x-4 items-center">
+                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <span class="sr-only">Voir les notifications</span>
+                            <i class="far fa-bell text-xl"></i>
+                        </button>
+                        <a href="panier.html" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <span class="sr-only">Voir le panier</span>
+                            <div class="relative">
+                                <i class="fas fa-shopping-cart text-xl"></i>
+                                <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                            </div>
+                        </a>
+                        <a href="login.html" class="flex items-center justify-center">
+                            <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="Profil utilisateur">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="-mr-2 flex items-center sm:hidden">
+                <button type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-expanded="false">
+                    <span class="sr-only">Ouvrir le menu principal</span>
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- En-tête de page -->
+<div class="tech-gradient py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-white">Paiement</h1>
+        <p class="mt-2 text-white opacity-90">Finalisez votre achat en toute sécurité</p>
+    </div>
+</div>
+
+<!-- Contenu du paiement -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-x-12">
+        <!-- Formulaire de livraison -->
+        <div class="lg:col-span-7">
+            <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Informations de livraison</h2>
+                <form>
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="first-name" class="block text-sm font-medium text-gray-700">Prénom</label>
+                            <input type="text" name="first-name" id="first-name" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border">
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="last-name" class="block text-sm font-medium text-gray-700">Nom</label>
+                            <input type="text" name="last-name" id="last-name" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border">
+                        </div>
+
+                        <div class="col-span-6">
+                            <label for="email" class="block text-sm font-medium text-gray-700">Adresse e-mail</label>
+                            <input type="email" name="email" id="email" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border">
+                        </div>
+
+                        <div class="col-span-6">
+                            <label for="street-address" class="block text-sm font-medium text-gray-700">Adresse</label>
+                            <input type="text" name="street-address" id="street-address" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border">
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                            <label for="city" class="block text-sm font-medium text-gray-700">Ville</label>
+                            <input type="text" name="city" id="city" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border">
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                            <label for="state" class="block text-sm font-medium text-gray-700">État / Province</label>
+                            <input type="text" name="state" id="state" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border">
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                            <label for="postal-code" class="block text-sm font-medium text-gray-700">Code postal</label>
+                            <input type="text" name="postal-code" id="postal-code" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border">
+                        </div>
+
+                        <div class="col-span-6">
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Numéro de téléphone</label>
+                            <input type="tel" name="phone" id="phone" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Résumé de la commande -->
+
+        <div class="lg:col-span-5 mt-8 lg:mt-0">
+            <div class="bg-white shadow-md rounded-lg p-6 sticky top-8">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Résumé de la commande</h2>
+
+                <div class="flow-root">
+
+                    <ul th:each="produit:${list_produit}" class="-my-6 divide-y divide-gray-200">
+                        <!-- Produit 1 -->
+                        <li class="py-6 flex">
+                            <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-mdoverflow-hidden">
+                                <img th:src="@{{lien} lien=${produit.getProduct().getImageUrl()}}" alt="Produit 1" class="w-full h-full object-center object-cover">
+                            </div>
+                            <div class="ml-4 flex-1 flex flex-col">
+                            <div>
+                                <div class="flex justify-between text-base font-medium text-gray-900">
+                                    <h3 th:text="${produit.getProduct().getNom()}"></h3>
+                                    <p class="ml-4" th:text="${produit.getProduct().getPrix() + ' DH'}"></p>
+                                </div>
+                            </div>
+                                <form th:action="@{/panier/delete/{id}(id=${produit.getId()})}" method="post" style="display: contents;">
+                                    <div class="flex-1 flex items-end justify-between text-sm">
+                                        <p th:text="${produit.getQuantite()}"></p>
+                                        <button type="submit" class="text-blue-600 hover:text-blue-800 font-semibold">Supprimer</button>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="border-t border-gray-200 mt-6 pt-6">
+                    <div class="flex justify-between text-base font-medium text-gray-900">
+                        <p>Total</p>
+                        <p th:text="${total} + '  DH'"></p>
+                    </div>
+                    <p class="mt-0.5 text-sm text-gray-500">Taxes et frais de livraison inclus</p>
+                </div>
+
+                <button class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md">
+                    Procéder au paiement
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div> <!-- Pied de page --> <footer class="bg-white shadow-inner mt-20">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center text-gray-600 text-sm">
+        <p>© 2025 TechHub. Tous droits réservés.</p> <div class="space-x-4">
+        <a href="#" class="hover:text-blue-600">Politique de confidentialité</a>
+        <a href="#" class="hover:text-blue-600">Conditions d'utilisation</a>
+        <a href="#" class="hover:text-blue-600">Contactez-nous</a>
+    </div>
+    </div>
+</footer>
+</body>
+</html>
