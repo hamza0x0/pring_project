@@ -104,7 +104,7 @@
         <div class="tech-gradient px-6 py-4">
             <h2 class="text-lg font-medium text-white">Ajouter un nouveau produit</h2>
         </div>
-        <form th:action="@{/admin}" method="post" th:object="${product}" >
+        <form th:action="@{/admin}"  enctype="multipart/form-data" method="post" th:object="${product}" >
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="nom" class="block text-sm font-medium text-gray-700 mb-1">Nom du produit</label>
@@ -128,16 +128,8 @@
                     <label for="stock" class="block text-sm font-medium text-gray-700 mb-1">Stock disponible</label>
                     <input type="number" th:field="*{stock}" id="stock" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
                 </div>
-                <div class="md:col-span-2">
-                    <label for="imageFile" class="block text-sm font-medium text-gray-700 mb-1">Sélectionner une image</label>
-                    <input name="imageFile" type="file" accept="static/image/*" th:field="*{imageUrl}" id="imageFile"
-                           class="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500
-                  file:mr-4 file:py-2 file:px-4
-                  file:rounded-lg file:border-0
-                  file:text-sm file:font-medium
-                  file:bg-blue-50 file:text-blue-700
-                  hover:file:bg-blue-100">
-                </div>
+                <input name="imageFile" type="file" accept="image/*" id="imageFile"
+                       class="w-full rounded-lg border-gray-300 ..." />
                 <div class="md:col-span-2">
                     <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
                     <textarea th:field="*{description}" id="description" rows="4" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required></textarea>

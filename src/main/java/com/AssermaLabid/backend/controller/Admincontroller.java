@@ -6,6 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 @Controller
 @RequestMapping("/admin")
@@ -25,10 +34,36 @@ public class Admincontroller {
         return "admin_ajouter";
     }
     @PostMapping("")
-    public String admin_ajouter(@ModelAttribute Product product ) {
+    public String admin_ajouter(@ModelAttribute Product product,
+                                @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+
+        // Dossier où tu veux stocker les images (à adapter)
+        String uploadDir = "uploads/";
+
+        // Création du dossier s'il n'existe pas
+        Path uploadPath = Paths.get(uploadDir);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+
+        // Générer un nom unique pour éviter les collisions
+        String filename = System.currentTimeMillis() + "_" + imageFile.getOriginalFilename();
+
+        // Copier le fichier
+        try (InputStream inputStream = imageFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(filename);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        }
+
+        // Met à jour le chemin dans le produit
+        product.setImageUrl("/" + uploadDir + filename);
+
+        // Sauvegarde le produit
         productService.ajouter_produit(product);
+
         return "redirect:/admin";
     }
+
     @PostMapping("/deleteproduit")
     public String delete_produit(@RequestParam("id") int id) {
         System.out.println(page);
@@ -43,10 +78,13 @@ public class Admincontroller {
         return "edit";
     }
     @PostMapping("/editProduitConfirmation")
-    public String edit_product(@ModelAttribute Product product) {
+    public String edit_product(@ModelAttribute Product product,@RequestParam("imageFile") MultipartFile imageFile) {
         productService.update_un_product(product);
         return "redirect:/admin";
     }
+
+
+
     @GetMapping("/nextP/{id}")
     public String next_page(@PathVariable("id") int id) {
         if(id>0){
