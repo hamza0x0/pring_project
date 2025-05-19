@@ -39,4 +39,10 @@ public class PanierController {
 
         return "redirect:/panier";
     }
+    @GetMapping("/achat_fini")
+    public String achat_fini(Model model) {
+        User user = UserUtil.getCurrentUser();
+        cartService.acheter_panier(user);
+        return "redirect:/home";
+    }
 }

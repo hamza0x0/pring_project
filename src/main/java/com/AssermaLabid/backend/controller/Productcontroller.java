@@ -1,5 +1,6 @@
 package com.AssermaLabid.backend.controller;
 
+import com.AssermaLabid.backend.services.CartService;
 import org.springframework.ui.Model;
 
 
@@ -15,6 +16,8 @@ public class Productcontroller {
     int page=1;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CartService cartService;
 
     @GetMapping("/{id}")
     public String produit(@PathVariable("id") int id, Model model) {
@@ -33,6 +36,7 @@ public class Productcontroller {
         
         return"redirect:/list_produit";
     }
+
 
 
 

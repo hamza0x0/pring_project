@@ -96,6 +96,20 @@ public class CartService {
 
 
     }
+    @Transactional
+    public void acheter_panier(User user) {
+
+        Cart cart = user.getCart();
+        List<CartItem> cartItemList = cartRepository.getCartItemsByCartId(cart.getId());
+
+        for (CartItem item : cartItemList) {
+            cartitemrepository.delete(item);
+        }
+
+        cart.getItems().clear(); // vider la liste côté objet Cart
+        cartRepository.save(cart); // sauvegarder le Cart sans items
+    }
+
 
 
 
