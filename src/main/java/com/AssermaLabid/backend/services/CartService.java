@@ -27,16 +27,8 @@ public class CartService {
     private ProductService productService;
 
 
-    @Transactional
     public void ajouter_panier(int produitId, User user) {
         Product product = productService.getProductById(produitId);
-        if (product == null) {
-            throw new IllegalArgumentException("Produit introuvable avec l'ID : " + produitId);
-        }
-
-        if (product.getStock() <= 0) {
-            throw new IllegalStateException("Produit en rupture de stock.");
-        }
 
         Cart cart = user.getCart();
         if (cart == null) {
@@ -44,36 +36,35 @@ public class CartService {
             cart.setUser(user);
             cart.setItems(new ArrayList<>());
             user.setCart(cart);
+            cartRepository.save(cart);
         }
 
-        // Initialiser les items si besoin
-        Hibernate.initialize(cart.getItems());
+        // Chargement des éléments du panier depuis la base
+        List<CartItem> cartItemList = cartRepository.getCartItemsByCartId(cart.getId());
 
-        Optional<CartItem> existingItem = cart.getItems().stream()
-                .filter(item -> item.getProduct().getId() == product.getId())
-                .findFirst();
+        CartItem existingItem = null;
+        for (CartItem item : cartItemList) {
+            if (item.getProduct().getId() == produitId) {
+                existingItem = item;
+                break;
+            }
+        }
 
-        if (existingItem.isPresent()) {
-            CartItem item = existingItem.get();
-            item.setQuantite(item.getQuantite() + 1);
+        if (existingItem != null) {
+            existingItem.setQuantite(existingItem.getQuantite() + 1);
+            cartitemrepository.save(existingItem);
         } else {
             CartItem newItem = new CartItem();
             newItem.setCart(cart);
             newItem.setProduct(product);
             newItem.setQuantite(1);
-            cart.getItems().add(newItem);
+            cartitemrepository.save(newItem);
         }
-
-        // Diminuer le stock du produit
-        product.setStock(product.getStock() - 1);
-
-        // Sauvegarder les entités
-        productService.ajouter_produit(product);
-        cartRepository.save(cart);
     }
 
 
-        public List<CartItem> voir_panier(Long cartId) {
+
+    public List<CartItem> voir_panier(Long cartId) {
             Cart cart = cartRepository.findByIdWithItems(cartId);
             if (cart == null) {
                 return null;

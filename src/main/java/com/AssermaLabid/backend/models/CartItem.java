@@ -49,5 +49,11 @@ public class CartItem {
         this.cart = cart;
     }
 
+    public CartItem(Cart cart, Product product, int quantite) {
+        this.cart = cart;
+        this.product = product;
+        this.quantite = quantite;
+    }
+    public CartItem(){}
 
 }
