@@ -71,14 +71,15 @@ public class Admincontroller {
         return "redirect:/admin";
     }
     @PostMapping("/editProduit")
-    public String edit_produit(@RequestParam("id") int id, Model model) {
+    public String edit_produit(Model model,@RequestParam("id") int id) {
         System.out.println(id);
+
         Product p = productService.get_un_product(id);
         model.addAttribute("produit", p);
         return "edit";
     }
     @PostMapping("/editProduitConfirmation")
-    public String edit_product(@ModelAttribute Product product,@RequestParam("imageFile") MultipartFile imageFile) {
+    public String edit_product(@ModelAttribute Product product) {
         productService.update_un_product(product);
         return "redirect:/admin";
     }

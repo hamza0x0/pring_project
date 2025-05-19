@@ -51,8 +51,24 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
     public void update_un_product(Product product){
-         productRepository.save(product);
+        Product existingProduct = productRepository.findById(product.getId())
+                .orElseThrow(() -> new RuntimeException("Produit non trouvé"));
+
+        // Met à jour uniquement les champs modifiés
+        existingProduct.setNom(product.getNom());
+        existingProduct.setPrix(product.getPrix());
+        existingProduct.setType(product.getType());
+        existingProduct.setStock(product.getStock());
+        existingProduct.setDescription(product.getDescription());
+
+        // Garde l'image actuelle si aucune nouvelle n'est envoyée
+        if (product.getImageUrl() != null && !product.getImageUrl().isBlank()) {
+            existingProduct.setImageUrl(product.getImageUrl());
+        }
+
+        productRepository.save(existingProduct);
     }
+
     public List<Product> product_afficher_f_page(){
        List <Product> p1 = productRepository.findAllParOrder();
        List <Product> p2 = new ArrayList<>();
