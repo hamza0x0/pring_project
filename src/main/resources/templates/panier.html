@@ -22,16 +22,13 @@
                     <h1 class="text-2xl font-bold text-blue-600">TechHub</h1>
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                    <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/home}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Accueil
                     </a>
-                    <a href="products_list.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/produit/list_produit}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Produits
                     </a>
-                    <a href="panier.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Panier
-                    </a>
-                    <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/maintenance}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Contact
                     </a>
                 </div>
@@ -43,15 +40,15 @@
                             <span class="sr-only">Voir les notifications</span>
                             <i class="far fa-bell text-xl"></i>
                         </button>
-                        <a href="panier.html" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <a th:href="@{/panier}" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <span class="sr-only">Voir le panier</span>
                             <div class="relative">
                                 <i class="fas fa-shopping-cart text-xl"></i>
-                                <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+
                             </div>
                         </a>
-                        <a href="login.html" class="flex items-center justify-center">
-                            <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="Profil utilisateur">
+                        <a th:href="@{/logout}" class="flex items-center justify-center">
+                            <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="User profile">
                         </a>
                     </div>
                 </div>
@@ -185,9 +182,9 @@
 </div> <!-- Pied de page --> <footer class="bg-white shadow-inner mt-20">
     <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center text-gray-600 text-sm">
         <p>© 2025 TechHub. Tous droits réservés.</p> <div class="space-x-4">
-        <a href="#" class="hover:text-blue-600">Politique de confidentialité</a>
-        <a href="#" class="hover:text-blue-600">Conditions d'utilisation</a>
-        <a href="#" class="hover:text-blue-600">Contactez-nous</a>
+        <a th:href="@{/maintenance}" class="hover:text-blue-600">Politique de confidentialité</a>
+        <a th:href="@{/maintenance}" class="hover:text-blue-600">Conditions d'utilisation</a>
+        <a th:href="@{/maintenance}" class="hover:text-blue-600">Contactez-nous</a>
     </div>
     </div>
 </footer>

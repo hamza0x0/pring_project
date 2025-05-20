@@ -8,7 +8,7 @@ public class UserUtil {
 
     public static User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return (User) authentication.getPrincipal(); // Attention : ici, il faut que ton entité User implémente UserDetails
+        return (User) authentication.getPrincipal();
     }
 
     public static Long getCurrentUserId() {

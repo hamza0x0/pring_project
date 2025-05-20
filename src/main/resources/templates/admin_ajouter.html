@@ -24,7 +24,10 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
 
-                    <a href="#" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/Admin}" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Admin
+                    </a>
+                    <a th:href="@{/produit/list_produit}" class=" text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Produits
                     </a>
 
@@ -36,8 +39,9 @@
                     <div class="flex space-x-4 items-center">
 
                         <div class="relative">
-                            <p class="h-8 w-8 rounded-full" >profil</p>
-                            <span class="absolute bottom-0 right-0 block h-2 w-2 rounded-full bg-green-400 ring-2 ring-white"></span>
+                            <a th:href="@{/logout}" class="flex items-center justify-center">
+                                <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="User profile">
+                            </a>
                         </div>
                     </div>
                 </div>

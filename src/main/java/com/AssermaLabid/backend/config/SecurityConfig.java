@@ -1,12 +1,12 @@
 package com.AssermaLabid.backend.config;
 
-import com.AssermaLabid.backend.services.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfig {
@@ -16,11 +16,14 @@ public class SecurityConfig {
         http
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/register", "/css/**", "/js/**").permitAll()
-                        .requestMatchers("/admin/**","/home","/**").hasAuthority("ADMIN")
-                        .requestMatchers("/user/**").hasAuthority("USER")
+                        .requestMatchers("/uploads/**","/maintenance", "/login", "/register", "/inscription", "/home/**", "/error").permitAll()
+                        .requestMatchers("/produit/**").hasAnyAuthority("ADMIN", "USER")
+                        .requestMatchers("/","/api/placeholder/**", "/panier/**").hasAuthority("USER")
+                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
+
                         .anyRequest().denyAll()
                 )
+
                 .formLogin(form -> form
                         .loginPage("/login")
                         .usernameParameter("email")
@@ -32,7 +35,13 @@ public class SecurityConfig {
                         .permitAll()
                 )
 
-                .logout(logout -> logout.permitAll());
+                .logout(logout -> logout
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+                        .logoutSuccessUrl("/home")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll()
+                );
 
         return http.build();
     }
@@ -40,7 +49,7 @@ public class SecurityConfig {
 
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    static public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }

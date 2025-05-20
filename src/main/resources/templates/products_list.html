@@ -23,16 +23,13 @@
                     <h1 class="text-2xl font-bold text-blue-600">TechHub</h1>
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                    <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/home}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Home
                     </a>
-                    <a href="products.html" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Products
+                    <a th:href="@{/produit/list_produit}" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Produits
                     </a>
-                    <a href="panier.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Cart
-                    </a>
-                    <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/maintenance}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Contact
                     </a>
                 </div>
@@ -40,18 +37,15 @@
             <div class="hidden sm:ml-6 sm:flex sm:items-center">
                 <div class="ml-3 relative">
                     <div class="flex space-x-4 items-center">
-                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <span class="sr-only">View notifications</span>
-                            <i class="far fa-bell text-xl"></i>
-                        </button>
-                        <a href="panier.html" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+
+                        <a th:href="@{/panier}" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <span class="sr-only">View cart</span>
                             <div class="relative">
                                 <i class="fas fa-shopping-cart text-xl"></i>
-                                <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+
                             </div>
                         </a>
-                        <a href="login.html" class="flex items-center justify-center">
+                        <a th:href="@{/logout}" class="flex items-center justify-center">
                             <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="User profile">
                         </a>
                     </div>
@@ -59,7 +53,7 @@
             </div>
             <div class="-mr-2 flex items-center sm:hidden">
                 <button type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
+                    <span class="sr-only">le menu principal</span>
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -71,9 +65,9 @@
 <div class="tech-gradient py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-            <h1 class="text-3xl font-bold text-white">Our Products</h1>
+            <h1 class="text-3xl font-bold text-white"> Nos produits</h1>
             <p class="mt-2 text-lg text-white opacity-90">
-                Browse our collection of premium tech products
+                Parcourez notre collection de produits technologiques haut de gamme
             </p>
         </div>
     </div>
@@ -85,7 +79,7 @@
         <!-- Filters Sidebar -->
         <div class="w-full lg:w-1/4 pr-0 lg:pr-8 mb-8 lg:mb-0">
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-lg font-medium text-gray-900 mb-4">Filters</h2>
+                <h2 class="text-lg font-medium text-gray-900 mb-4">Filtres</h2>
 
                 <!-- Categories -->
                 <div class="mb-6">
@@ -93,50 +87,50 @@
                     <div class="space-y-2">
                         <div class="flex items-center">
                             <input id="all" name="category" type="radio" checked class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="all" class="ml-3 text-sm text-gray-600">All Categories</label>
+                            <label for="all" class="ml-3 text-sm text-gray-600">Tout les Categories</label>
                         </div>
                         <div class="flex items-center">
                             <input id="smartphones" name="category" type="radio" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="smartphones" class="ml-3 text-sm text-gray-600">Smartphones</label>
+                            <label for="smartphones" class="ml-3 text-sm text-gray-600">Telephone</label>
                         </div>
                         <div class="flex items-center">
                             <input id="laptops" name="category" type="radio" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="laptops" class="ml-3 text-sm text-gray-600">Laptops</label>
+                            <label for="laptops" class="ml-3 text-sm text-gray-600">Ordinateurs portables</label>
                         </div>
                         <div class="flex items-center">
                             <input id="tablets" name="category" type="radio" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="tablets" class="ml-3 text-sm text-gray-600">Tablets</label>
+                            <label for="tablets" class="ml-3 text-sm text-gray-600">tablette</label>
                         </div>
                         <div class="flex items-center">
                             <input id="accessories" name="category" type="radio" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="accessories" class="ml-3 text-sm text-gray-600">Accessories</label>
+                            <label for="accessories" class="ml-3 text-sm text-gray-600">Accessoires</label>
                         </div>
                     </div>
                 </div>
 
                 <!-- Price Range -->
                 <div class="mb-6">
-                    <h3 class="text-sm font-medium text-gray-900 mb-3">Price Range</h3>
+                    <h3 class="text-sm font-medium text-gray-900 mb-3">Fourchette de prix</h3>
                     <div class="space-y-2">
                         <div class="flex items-center">
                             <input id="price-1" name="price" type="radio" checked class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="price-1" class="ml-3 text-sm text-gray-600">All Prices</label>
+                            <label for="price-1" class="ml-3 text-sm text-gray-600">Prix</label>
                         </div>
                         <div class="flex items-center">
                             <input id="price-2" name="price" type="radio" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="price-2" class="ml-3 text-sm text-gray-600">Under $100</label>
+                            <label for="price-2" class="ml-3 text-sm text-gray-600">Moins de 100 DH</label>
                         </div>
                         <div class="flex items-center">
                             <input id="price-3" name="price" type="radio" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="price-3" class="ml-3 text-sm text-gray-600">$100 - $500</label>
+                            <label for="price-3" class="ml-3 text-sm text-gray-600">100 DH - 500 DH</label>
                         </div>
                         <div class="flex items-center">
                             <input id="price-4" name="price" type="radio" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="price-4" class="ml-3 text-sm text-gray-600">$500 - $1000</label>
+                            <label for="price-4" class="ml-3 text-sm text-gray-600">500 DH - 1000 DH</label>
                         </div>
                         <div class="flex items-center">
                             <input id="price-5" name="price" type="radio" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <label for="price-5" class="ml-3 text-sm text-gray-600">$1000+</label>
+                            <label for="price-5" class="ml-3 text-sm text-gray-600">1000 DH +</label>
                         </div>
                     </div>
                 </div>
@@ -145,7 +139,7 @@
 
 
                 <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150">
-                    Apply Filters
+                    Appliquer les filtres
                 </button>
             </div>
         </div>
@@ -226,10 +220,10 @@
                     <div class="text-center">
                         <p class="text-lg font-semibold">Rejoignez-nous sur les réseaux sociaux</p>
                         <div class="mt-6 flex justify-center space-x-4">
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                            <a th:href="@{/maintenance}" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                            <a th:href="@{/maintenance}" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                            <a th:href="@{/maintenance}" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                            <a hth:href="@{/maintenance}" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                         <p class="mt-4 text-sm text-gray-400">&copy; 2025 TechHub. Tous droits réservés.</p>
                     </div>

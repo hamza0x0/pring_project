@@ -22,16 +22,13 @@
                     <h1 class="text-2xl font-bold text-blue-600">TechHub</h1>
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                    <a href="index.html" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/}" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Accueil
                     </a>
-                    <a href="products_list.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/produit/list_produit}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Produits
                     </a>
-                    <a href="panier.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Panier
-                    </a>
-                    <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a th:href="@{/maintenance}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Contact
                     </a>
                 </div>
@@ -39,29 +36,20 @@
             <div class="hidden sm:ml-6 sm:flex sm:items-center">
                 <div class="ml-3 relative">
                     <div class="flex space-x-4 items-center">
-                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <span class="sr-only">Voir les notifications</span>
-                            <i class="far fa-bell text-xl"></i>
-                        </button>
-                        <a href="panier.html" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <a th:href="@{/panier}" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <span class="sr-only">Voir le panier</span>
                             <div class="relative">
                                 <i class="fas fa-shopping-cart text-xl"></i>
-                                <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+
                             </div>
                         </a>
-                        <a href="login.html" class="flex items-center justify-center">
-                            <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="Profil de l'utilisateur">
+                        <a th:href="@{/logout}" class="flex items-center justify-center">
+                            <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="User profile">
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-expanded="false">
-                    <span class="sr-only">Ouvrir le menu principal</span>
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
+
         </div>
     </div>
 </nav>
@@ -78,7 +66,7 @@
                     avec des offres exclusives et une livraison rapide.
                 </p>
                 <div class="mt-8">
-                    <a href="products_list.html" class="inline-block px-6 py-3 bg-white text-blue-600 font-medium rounded-lg shadow-md hover:bg-gray-100 transition duration-150">
+                    <a th:href="@{/produit/list_produit}" class="inline-block px-6 py-3 bg-white text-blue-600 font-medium rounded-lg shadow-md hover:bg-gray-100 transition duration-150">
                         Explorer les produits
                     </a>
                     <a href="#featured" class="inline-block ml-4 px-6 py-3 bg-transparent border border-white text-white font-medium rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-150">
@@ -94,48 +82,7 @@
 </div>
 
 <div class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Parcourir par catégorie</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <a href="products_list.html?category=smartphones" class="group">
-                <div class="bg-gray-100 rounded-xl p-6 transition duration-150 group-hover:bg-blue-50 group-hover:shadow-md text-center">
-                    <div class="text-blue-600 mb-3 flex justify-center">
-                        <i class="fas fa-mobile-alt text-4xl"></i>
-                    </div>
-                    <h3 class="font-medium text-lg text-gray-900">Smartphones</h3>
-                    <p class="text-gray-500 mt-2">Derniers modèles</p>
-                </div>
-            </a>
-            <a href="products_list.html?category=laptops" class="group">
-                <div class="bg-gray-100 rounded-xl p-6 transition duration-150 group-hover:bg-blue-50 group-hover:shadow-md text-center">
-                    <div class="text-blue-600 mb-3 flex justify-center">
-                        <i class="fas fa-laptop text-4xl"></i>
-                    </div>
-                    <h3 class="font-medium text-lg text-gray-900">Ordinateurs portables</h3>
-                    <p class="text-gray-500 mt-2">Puissance et performance</p>
-                </div>
-            </a>
-            <a href="products_list.html?category=tablets" class="group">
-                <div class="bg-gray-100 rounded-xl p-6 transition duration-150 group-hover:bg-blue-50 group-hover:shadow-md text-center">
-                    <div class="text-blue-600 mb-3 flex justify-center">
-                        <i class="fas fa-tablet-alt text-4xl"></i>
-                    </div>
-                    <h3 class="font-medium text-lg text-gray-900">Tablettes</h3>
-                    <p class="text-gray-500 mt-2">Informatique portable</p>
-                </div>
-            </a>
-            <a href="products_list.html?category=accessories" class="group">
-                <div class="bg-gray-100 rounded-xl p-6 transition duration-150 group-hover:bg-blue-50 group-hover:shadow-md text-center">
-                    <div class="text-blue-600 mb-3 flex justify-center">
-                        <i class="fas fa-headphones text-4xl"></i>
-                    </div>
-                    <h3 class="font-medium text-lg text-gray-900">Accessoires</h3>
-                    <p class="text-gray-500 mt-2">Complétez votre équipement</p>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
+
 
 <div id="featured" class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -170,10 +117,10 @@
         <div class="text-center">
             <p class="text-lg font-semibold">Rejoignez-nous sur les réseaux sociaux</p>
             <div class="mt-6 flex justify-center space-x-4">
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                <a th:href="@{/maintenance}" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                <a th:href="@{/maintenance}" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                <a th:href="@{/maintenance}" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a th:href="@{/maintenance}" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <p class="mt-4 text-sm text-gray-400">&copy; 2025 TechHub. Tous droits réservés.</p>
         </div>
